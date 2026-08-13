@@ -13,6 +13,12 @@ Site institucional estático do KombatClub (kombatclub.com.br), servido pelo Clo
 
 **app.kombatclub.com.br é outro repositório e outro deploy (luta-tracker, Railway). Não deve ser tocado a partir deste repo.**
 
+## Mobile
+
+Breakpoint principal de mobile: `max-width:520px` (nav, toggle de planos, padding lateral de cards). O mosaico da seção `#quem` usa `max-width:560px` à parte, porque a coluna única de fotos empilhadas precisa de um pouco mais de largura antes de virar layout mobile.
+
+Espaçamento vertical de seção (`section`, `.hero`, `.final`) usa `clamp()` em vez de valor fixo em px — desktop-first com padding fixo deixa vazio demais entre seções em tela estreita. Ao adicionar padding vertical novo em bloco de largura total, prefira `clamp(mín,vw,máx)` a um valor único.
+
 ## Seção "Quem faz" (`#quem`)
 
 Seção de credibilidade entre o Instagram e Planos, com mosaico de fotos do fundador (ringue, corner, treino na Tailândia). As imagens ficam em `fotos/` na raiz do repo, versionadas em **WebP** (largura máxima 1400px, qualidade ~82, abaixo de 200 KB cada) — PNG não serve para foto, incha o peso sem ganho de qualidade perceptível.
