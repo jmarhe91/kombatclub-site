@@ -13,6 +13,10 @@ Site institucional estático do KombatClub (kombatclub.com.br), servido pelo Clo
 
 **app.kombatclub.com.br é outro repositório e outro deploy (luta-tracker, Railway). Não deve ser tocado a partir deste repo.**
 
+## Seção "Quem faz" (`#quem`)
+
+Seção de credibilidade entre o Instagram e Planos, com mosaico de fotos do fundador (ringue, corner, treino na Tailândia). As imagens ficam em `fotos/` na raiz do repo — são arquivos versionados diretamente (fotos pessoais reais), não geradas nem otimizadas por script. Qualquer imagem nova adicionada ao site deve seguir o mesmo padrão: entrar em `fotos/` e usar `loading="lazy"` na tag `<img>`.
+
 ## Duplicação consciente: preços
 
 Os preços exibidos nos cards de planos em [index.html](index.html) (seção `#planos`) são cópia manual de `TIER_PRICES` em `lib/constants/tiers.ts`, no repositório luta-tracker. Não há sincronização automática entre os dois.
