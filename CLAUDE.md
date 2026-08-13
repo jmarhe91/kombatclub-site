@@ -22,13 +22,28 @@ A ordem das seções segue a lógica de uma conversa de venda, não é arbitrár
 3. `#quem` — autoridade: responde "e você lá sabe disso?" antes de explicar a solução
 4. `#funciona` — a solução, como o produto resolve o que foi descrito
 5. `#recursos` — detalhamento da solução
-6. `.corte` (desqualificação) — filtra quem não é o público antes do preço, pra quem chega em planos já estar convencido
-7. `#planos` — preço, com a ancoragem de valor (`.ancora`) logo no topo do bloco
-8. `#faq` — objeções de quem ainda hesita
-9. `.ig-sec` — retenção de quem não vai comprar hoje; fica **depois** do preço de propósito, porque é o único link que tira o visitante do site — antes do preço ele interromperia a decisão
-10. `.final` — CTA de fechamento
+6. `#tecnica` (evolução técnica) — o diferencial central: nenhum concorrente de mercado acompanha isso, por isso a seção fecha o argumento de solução antes do corte
+7. `.corte` (desqualificação) — filtra quem não é o público antes do preço, pra quem chega em planos já estar convencido
+8. `#planos` — preço, com a ancoragem de valor (`.ancora`) logo no topo do bloco
+9. `#faq` — objeções de quem ainda hesita
+10. `.ig-sec` — retenção de quem não vai comprar hoje; fica **depois** do preço de propósito, porque é o único link que tira o visitante do site — antes do preço ele interromperia a decisão
+11. `.final` — CTA de fechamento
 
 Seção nova não entra em qualquer posição: decida onde ela se encaixa nessa sequência (dor → autoridade → solução → desqualificação → preço → objeções → retenção → CTA) antes de inserir.
+
+## Posicionamento de marca e metadados
+
+**"KombatClub" nunca aparece sozinho em `<title>`, `og:title`, `og:site_name` ou `meta name="description"`** — sempre colado a um qualificador de categoria ("acompanhamento de treino para academias de luta" ou equivalente).
+
+**Por quê:** testes de descoberta em LLMs mostraram 4+ entidades homônimas mais antigas disputando o termo "KombatClub". Sem o qualificador, menções ao nome puro são absorvidas por essas entidades em vez do produto.
+
+O `og:description` é a única exceção deliberada — mantém "KombatClub" solto porque funciona como gancho de compartilhamento, não como campo que define categoria para indexação.
+
+**Termos a evitar em título e meta description:** "gestão", "matrícula", "cobrança" e similares de ERP/administração de academia. O produto tem módulo financeiro (mensalidade, repasse) e ele continua na página (seção `#recursos`, card "Gestão financeira"), mas não é o que define a categoria do produto nesses campos — LLMs testados posicionam esses termos na categoria de sistemas de gestão administrativa (matrícula, catraca, cobrança), onde o produto não compete.
+
+## Seção "Evolução técnica" (`#tecnica`)
+
+Diferencial central da página: acompanhamento de evolução técnica do aluno (o que ele treinou — pad, clinch, sparring — não só se ele veio). Em testes de descoberta, nenhum sistema de mercado citado pelos LLMs faz esse tipo de acompanhamento; é o único argumento da página sem concorrente direto, por isso a seção existe e fica logo depois de `#recursos`, antes do corte de desqualificação.
 
 ## Mobile
 
