@@ -15,7 +15,11 @@ Site institucional estático do KombatClub (kombatclub.com.br), servido pelo Clo
 
 ## Seção "Quem faz" (`#quem`)
 
-Seção de credibilidade entre o Instagram e Planos, com mosaico de fotos do fundador (ringue, corner, treino na Tailândia). As imagens ficam em `fotos/` na raiz do repo — são arquivos versionados diretamente (fotos pessoais reais), não geradas nem otimizadas por script. Qualquer imagem nova adicionada ao site deve seguir o mesmo padrão: entrar em `fotos/` e usar `loading="lazy"` na tag `<img>`.
+Seção de credibilidade entre o Instagram e Planos, com mosaico de fotos do fundador (ringue, corner, treino na Tailândia). As imagens ficam em `fotos/` na raiz do repo, versionadas em **WebP** (largura máxima 1400px, qualidade ~82, abaixo de 200 KB cada) — PNG não serve para foto, incha o peso sem ganho de qualidade perceptível.
+
+Os arquivos originais (PNG, sem redimensionar) ficam em `fotos/originais/`, fora do versionamento (`.gitignore`) — servem só de backup local, nunca sobem para o repo.
+
+Qualquer imagem nova adicionada ao site segue o mesmo padrão: original preservado em `fotos/originais/`, versão de produção convertida para WebP em `fotos/` (máx. 1400px de largura, abaixo de 200 KB), e `loading="lazy"` na tag `<img>`.
 
 ## Duplicação consciente: preços
 
