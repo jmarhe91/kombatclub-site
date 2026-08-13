@@ -13,6 +13,23 @@ Site institucional estático do KombatClub (kombatclub.com.br), servido pelo Clo
 
 **app.kombatclub.com.br é outro repositório e outro deploy (luta-tracker, Railway). Não deve ser tocado a partir deste repo.**
 
+## Ordem das seções
+
+A ordem das seções segue a lógica de uma conversa de venda, não é arbitrária:
+
+1. `.hero` — abre com a dor (o aluno some devagar)
+2. `#problema` — aprofunda a dor, dá nome ao sinal
+3. `#quem` — autoridade: responde "e você lá sabe disso?" antes de explicar a solução
+4. `#funciona` — a solução, como o produto resolve o que foi descrito
+5. `#recursos` — detalhamento da solução
+6. `.corte` (desqualificação) — filtra quem não é o público antes do preço, pra quem chega em planos já estar convencido
+7. `#planos` — preço, com a ancoragem de valor (`.ancora`) logo no topo do bloco
+8. `#faq` — objeções de quem ainda hesita
+9. `.ig-sec` — retenção de quem não vai comprar hoje; fica **depois** do preço de propósito, porque é o único link que tira o visitante do site — antes do preço ele interromperia a decisão
+10. `.final` — CTA de fechamento
+
+Seção nova não entra em qualquer posição: decida onde ela se encaixa nessa sequência (dor → autoridade → solução → desqualificação → preço → objeções → retenção → CTA) antes de inserir.
+
 ## Mobile
 
 Breakpoint principal de mobile: `max-width:520px` (nav, toggle de planos, padding lateral de cards). O mosaico da seção `#quem` usa `max-width:560px` à parte, porque a coluna única de fotos empilhadas precisa de um pouco mais de largura antes de virar layout mobile.
@@ -21,7 +38,7 @@ Espaçamento vertical de seção (`section`, `.hero`, `.final`) usa `clamp()` em
 
 ## Seção "Quem faz" (`#quem`)
 
-Seção de credibilidade entre o Instagram e Planos, com mosaico de fotos do fundador (ringue, corner, treino na Tailândia). As imagens ficam em `fotos/` na raiz do repo, versionadas em **WebP** (largura máxima 1400px, qualidade ~82, abaixo de 200 KB cada) — PNG não serve para foto, incha o peso sem ganho de qualidade perceptível.
+Seção de credibilidade logo após `#problema` (ver [Ordem das seções](#ordem-das-seções)), com mosaico de fotos do fundador (ringue, corner, treino na Tailândia). As imagens ficam em `fotos/` na raiz do repo, versionadas em **WebP** (largura máxima 1400px, qualidade ~82, abaixo de 200 KB cada) — PNG não serve para foto, incha o peso sem ganho de qualidade perceptível.
 
 Os arquivos originais (PNG, sem redimensionar) ficam em `fotos/originais/`, fora do versionamento (`.gitignore`) — servem só de backup local, nunca sobem para o repo.
 

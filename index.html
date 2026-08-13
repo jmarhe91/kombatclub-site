@@ -178,6 +178,20 @@ h1 .strike::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;heig
 .assina{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--ash)}
 .assina b{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--white);letter-spacing:.04em;display:block;font-weight:400}
 
+/* desqualificacao */
+.corte{background:linear-gradient(180deg,var(--black),#121212);border-top:1px solid var(--line)}
+.corte-in{max-width:760px;margin:0 auto;text-align:center}
+.corte h2{margin-bottom:22px}
+.corte p{font-size:18px;line-height:1.55}
+.corte p + p{margin-top:16px}
+.corte b{color:var(--white);font-weight:800}
+.corte .risca{display:block;width:56px;height:3px;background:var(--red);margin:26px auto 0}
+
+/* ancoragem no bloco de planos */
+.ancora{max-width:640px;margin:20px 0 0;padding:18px 22px;border-left:3px solid var(--red);background:rgba(229,57,53,.07)}
+.ancora p{font-size:16px;line-height:1.5}
+.ancora b{color:var(--white);font-weight:800}
+
 /* planos */
 .toggle{display:inline-flex;background:var(--canvas);padding:5px;margin-top:26px;gap:4px}
 .toggle button{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.08em;color:#6E6E6E;background:transparent;border:0;padding:10px 22px;cursor:pointer;transition:.16s;opacity:.65}
@@ -261,9 +275,9 @@ footer a:hover{color:var(--white)}
     </a>
     <div class="nav-links">
       <a href="#problema">O problema</a>
+      <a href="#quem">Quem faz</a>
       <a href="#funciona">Como funciona</a>
       <a href="#recursos">Recursos</a>
-      <a href="#quem">Quem faz</a>
       <a href="#planos">Planos</a>
     </div>
     <div class="nav-right">
@@ -377,6 +391,31 @@ footer a:hover{color:var(--white)}
   </div>
 </section>
 
+<section class="quem" id="quem">
+  <div class="wrap quem-grid">
+    <div>
+      <div class="eyebrow">Quem faz</div>
+      <h2>Não foi feito<br>de fora do tatame.</h2>
+      <div class="dupla">
+        <div><b>16</b><span>anos de luta</span></div>
+        <div><b>16</b><span>anos de tecnologia</span></div>
+      </div>
+      <p>Sou professor de Muay Thai e atleta. No mesmo período em que estou na luta, trabalho com tecnologia — e o KombatClub nasceu porque eu perdia aluno sem entender o motivo, na minha própria academia.</p>
+      <p style="margin-top:14px">Cada tela daqui foi testada com os meus alunos antes de virar produto. Por isso o app fala em pad, clinch e sparring, e não em "engajamento". E por isso ele nunca gradua ninguém no seu lugar: eu não ia querer isso na minha turma.</p>
+      <div class="assina">
+        <b>JEAN MARLON</b>
+        Professor de Muay Thai · fundador do KombatClub
+      </div>
+    </div>
+
+    <div class="mosaico">
+      <figure class="m-ringue"><img src="fotos/ringue.webp" alt="Jean lutando no ringue" loading="lazy"></figure>
+      <figure class="m-corner"><img src="fotos/corner.webp" alt="Jean dando instrução no corner" loading="lazy"></figure>
+      <figure class="m-tailandia"><img src="fotos/tailandia.webp" alt="Jean treinando na Tailândia" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
 <section id="funciona">
   <div class="wrap">
     <div class="eyebrow">Como funciona</div>
@@ -462,43 +501,13 @@ footer a:hover{color:var(--white)}
   </div>
 </section>
 
-<section class="ig-sec">
-  <div class="wrap ig-grid">
-    <div>
-      <div class="eyebrow">Instagram</div>
-      <h2>Todo professor<br>já ouviu isso.</h2>
-      <div class="ig-handle">@kombatclub_app</div>
-      <p style="max-width:520px;margin-top:14px">Bastidor de academia, as desculpas clássicas de aluno e o que os dados mostram por trás delas. Post novo toda semana — e é lá que a gente responde dúvida rápido.</p>
-    </div>
-    <a class="ig-big" href="https://instagram.com/kombatclub_app" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
-      Seguir no Instagram
-    </a>
-  </div>
-</section>
-
-<section class="quem" id="quem">
-  <div class="wrap quem-grid">
-    <div>
-      <div class="eyebrow">Quem faz</div>
-      <h2>Não foi feito<br>de fora do tatame.</h2>
-      <div class="dupla">
-        <div><b>16</b><span>anos de luta</span></div>
-        <div><b>16</b><span>anos de tecnologia</span></div>
-      </div>
-      <p>Sou professor de Muay Thai e atleta. No mesmo período em que estou na luta, trabalho com tecnologia — e o KombatClub nasceu porque eu perdia aluno sem entender o motivo, na minha própria academia.</p>
-      <p style="margin-top:14px">Cada tela daqui foi testada com os meus alunos antes de virar produto. Por isso o app fala em pad, clinch e sparring, e não em "engajamento". E por isso ele nunca gradua ninguém no seu lugar: eu não ia querer isso na minha turma.</p>
-      <div class="assina">
-        <b>JEAN MARLON</b>
-        Professor de Muay Thai · fundador do KombatClub
-      </div>
-    </div>
-
-    <div class="mosaico">
-      <figure class="m-ringue"><img src="fotos/ringue.webp" alt="Jean lutando no ringue" loading="lazy"></figure>
-      <figure class="m-corner"><img src="fotos/corner.webp" alt="Jean dando instrução no corner" loading="lazy"></figure>
-      <figure class="m-tailandia"><img src="fotos/tailandia.webp" alt="Jean treinando na Tailândia" loading="lazy"></figure>
-    </div>
+<section class="corte">
+  <div class="wrap corte-in">
+    <div class="eyebrow" style="justify-content:center">Antes de ver o preço</div>
+    <h2>Isso não é pra todo professor.</h2>
+    <p>Se você sabe de cabeça quem faltou nas últimas três semanas e por quê, se ninguém some da sua turma sem você perceber, então <b>você não precisa disso</b>. Segue no caderno que está funcionando.</p>
+    <p>Agora, se você já perdeu aluno e só foi entender depois — quando não dava mais pra fazer nada — é exatamente pra isso que o KombatClub existe.</p>
+    <span class="risca"></span>
   </div>
 </section>
 
@@ -506,6 +515,9 @@ footer a:hover{color:var(--white)}
   <div class="wrap">
     <div class="eyebrow">Planos</div>
     <h2>Preço de tabela.<br>Sem letra miúda.</h2>
+    <div class="ancora">
+      <p>Faz a conta pelo outro lado: aluno que evade não leva uma mensalidade embora, leva <b>todas as que viriam depois</b>. Se a sua mensalidade é R$ 150, <b>um único aluno que você segura por um ano já paga o plano inteiro</b> — o resto da turma é ganho que você não teria.</p>
+    </div>
     <div class="toggle" role="group" aria-label="Ciclo de cobrança">
       <button id="btn-mensal" aria-pressed="false">Mensal</button>
       <button id="btn-anual" aria-pressed="true">Anual · 2 meses grátis</button>
@@ -636,6 +648,21 @@ footer a:hover{color:var(--white)}
         <p>No plano mensal, quando quiser, direto no portal de assinatura. No anual, ao final dos 12 meses de fidelidade.</p>
       </details>
     </div>
+  </div>
+</section>
+
+<section class="ig-sec">
+  <div class="wrap ig-grid">
+    <div>
+      <div class="eyebrow">Instagram</div>
+      <h2>Todo professor<br>já ouviu isso.</h2>
+      <div class="ig-handle">@kombatclub_app</div>
+      <p style="max-width:520px;margin-top:14px">Bastidor de academia, as desculpas clássicas de aluno e o que os dados mostram por trás delas. Post novo toda semana — e é lá que a gente responde dúvida rápido.</p>
+    </div>
+    <a class="ig-big" href="https://instagram.com/kombatclub_app" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+      Seguir no Instagram
+    </a>
   </div>
 </section>
 
