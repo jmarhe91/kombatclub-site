@@ -21,6 +21,8 @@ Os arquivos originais (PNG, sem redimensionar) ficam em `fotos/originais/`, fora
 
 Qualquer imagem nova adicionada ao site segue o mesmo padrão: original preservado em `fotos/originais/`, versão de produção convertida para WebP em `fotos/` (máx. 1400px de largura, abaixo de 200 KB), e `loading="lazy"` na tag `<img>`.
 
+O recorte de cada foto no mosaico é controlado por `object-position` via uma classe por `<figure>` (`.m-ringue`, `.m-corner`, `.m-tailandia`). Não há legenda sobre as fotos — o ponto de interesse fica mais alto que o centro em foto de luta, então os valores de `object-position` são um ponto de partida e esperam ajuste manual olhando o resultado renderizado.
+
 ## Duplicação consciente: preços
 
 Os preços exibidos nos cards de planos em [index.html](index.html) (seção `#planos`) são cópia manual de `TIER_PRICES` em `lib/constants/tiers.ts`, no repositório luta-tracker. Não há sincronização automática entre os dois.
