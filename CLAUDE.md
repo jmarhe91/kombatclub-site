@@ -67,6 +67,20 @@ Os preços exibidos nos cards de planos em [index.html](index.html) (seção `#p
 
 Qualquer mudança de preço em `TIER_PRICES` exige atualizar os valores aqui à mão (`data-m` e `data-a` de cada `.plano .val`, e o texto em `.price-note`). Este é o único ponto de duplicação consciente do projeto — não tente "corrigir" criando um mecanismo de sincronia sem alinhar com o time antes.
 
+## Trial acima da grade de planos
+
+O trial (14 dias, sem cartão) é apresentado como faixa (`.trial-faixa`) **acima** da grade `.planos`, não como um card de plano — é a oferta de menor atrito da página e não deve competir visualmente com o card Pro (`.plano.dest`) nem obrigar o visitante a passar por cinco preços antes de descobrir que pode começar de graça. A grade `.planos` tem exatamente **5 cards de preço**: Solo, Pro, Equipe Starter, Equipe Pro, Equipe Unlimited. Não devolva o trial para dentro da grade.
+
+## Cloudflare Web Analytics
+
+O analytics usa o snippet JS manual do Cloudflare (perto do `</body>` em [index.html](index.html)), não a integração automática do Pages. Trocar o token exige editar esse script diretamente — não há variável de ambiente nem painel de configuração neste repo. Atenção às aspas do `data-cf-beacon`: simples por fora, duplas dentro do JSON — invertido, o beacon não carrega e o analytics fica sem dados silenciosamente.
+
+## og.png
+
+`og.png`, na raiz do repo, foi gerado por um script descartável (satori + `@resvg/resvg-js`, JSX→SVG→PNG) que **não faz parte do repositório** — foi apagado depois de gerar a imagem, junto com `node_modules/`, `package.json` e `package-lock.json`. A imagem **não é regenerada automaticamente**: se a headline do hero ou a identidade visual mudar, alguém precisa recriar o script (mesmo padrão: satori + resvg, fontes TTF do Google Fonts, 1200×630) e rodar de novo à mão.
+
+Este repositório **não tem dependências Node e não deve ganhar nenhuma** — nenhuma ferramenta usada para gerar assets (imagens, ícones, etc.) deve deixar `package.json`, lockfile ou `node_modules/` versionados ou residentes no repo depois de usada.
+
 ## Esquema de UTM
 
 Todo link que aponta para `https://app.kombatclub.com.br` deve levar query string de UTM, para permitir separar qual bloco do site converte. Base fixa:
@@ -87,7 +101,7 @@ Todo link que aponta para `https://app.kombatclub.com.br` deve levar query strin
 | Card Equipe Starter | `plano_equipe_starter` |
 | Card Equipe Pro | `plano_equipe_pro` |
 | Card Equipe Unlimited | `plano_equipe_unlimited` |
-| Card Teste (grátis) | `plano_trial` |
+| Faixa de trial (`.trial-faixa`, acima da grade) | `trial_faixa` |
 | CTA "Criar conta grátis" no final | `cta_final` |
 | Link app.kombatclub.com.br no rodapé | `footer` |
 

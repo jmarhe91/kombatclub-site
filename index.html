@@ -208,6 +208,14 @@ h1 .strike::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;heig
 .ancora p{font-size:16px;line-height:1.5}
 .ancora b{color:var(--white);font-weight:800}
 
+/* faixa de trial */
+.trial-faixa{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;margin-top:34px;padding:26px 28px;border:1px solid rgba(229,57,53,.4);background:linear-gradient(100deg,rgba(229,57,53,.14),rgba(229,57,53,0) 66%)}
+.trial-faixa .selo{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,58px);line-height:.9;color:var(--red);letter-spacing:.03em}
+.trial-faixa h3{font-size:26px;margin-bottom:6px}
+.trial-faixa p{font-size:15px;color:#C4C4C4}
+.trial-faixa .btn{white-space:nowrap}
+@media(max-width:820px){.trial-faixa{grid-template-columns:1fr;gap:16px;text-align:left}}
+
 /* planos */
 .toggle{display:inline-flex;background:var(--canvas);padding:5px;margin-top:26px;gap:4px}
 .toggle button{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.08em;color:#6E6E6E;background:transparent;border:0;padding:10px 22px;cursor:pointer;transition:.16s;opacity:.65}
@@ -573,6 +581,15 @@ footer a:hover{color:var(--white)}
     </div>
     <div class="toggle-note" id="ciclo-nota">A cobrança segue mensal, com valor reduzido e fidelidade de 12 meses — no ano, dá cerca de dois meses de graça.</div>
 
+    <div class="trial-faixa">
+      <div class="selo">14 DIAS<br>GRÁTIS</div>
+      <div>
+        <h3>Comece sem pagar nada</h3>
+        <p>Acesso completo por 14 dias, até 10 alunos, sem cartão de crédito. Raio-X, análise por IA e financeiro liberados. Se você assinar depois, tudo que a turma registrou continua lá.</p>
+      </div>
+      <a class="btn btn-red" href="https://app.kombatclub.com.br?utm_source=landing&amp;utm_medium=site&amp;utm_campaign=landing_v1&amp;utm_content=trial_faixa">Criar conta</a>
+    </div>
+
     <div class="planos">
       <div class="plano">
         <h3>SOLO</h3>
@@ -645,18 +662,6 @@ footer a:hover{color:var(--white)}
         <a class="btn btn-ghost" href="https://app.kombatclub.com.br?utm_source=landing&amp;utm_medium=site&amp;utm_campaign=landing_v1&amp;utm_content=plano_equipe_unlimited">Começar</a>
       </div>
 
-      <div class="plano">
-        <h3>TESTE</h3>
-        <div class="sub">14 dias · até 10 alunos</div>
-        <div class="price"><span class="val">GRÁTIS</span></div>
-        <div class="price-note">Sem cartão de crédito.</div>
-        <ul>
-          <li>Acesso completo por 14 dias</li>
-          <li>Raio-X, IA e financeiro liberados</li>
-          <li>Seus dados ficam salvos ao assinar</li>
-        </ul>
-        <a class="btn btn-red" href="https://app.kombatclub.com.br?utm_source=landing&amp;utm_medium=site&amp;utm_campaign=landing_v1&amp;utm_content=plano_trial">Criar conta</a>
-      </div>
     </div>
 
     <div class="custom-note">Rede grande ou combinação fora da tabela? <a href="https://wa.me/5547999452015?text=Vim%20pelo%20site%20e%20quero%20um%20plano%20personalizado%20no%20KombatClub">Chama no WhatsApp (47) 99945-2015</a> que a gente monta.</div>
@@ -761,7 +766,6 @@ bM.addEventListener('click',()=>setCiclo(false));
 bA.addEventListener('click',()=>setCiclo(true));
 </script>
 
-<!-- Cloudflare Web Analytics — token real em: painel Cloudflare > Analytics & Logs > Web Analytics > Add a site -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "__CF_BEACON_TOKEN__"}'></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a5c4215a715d45d5ad57a09bcbb8039e"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

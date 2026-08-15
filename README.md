@@ -16,6 +16,4 @@ Abra [index.html](index.html) direto e edite. Não há build: o que está no arq
 
 ## TODOs abertos
 
-- **og.png não existe.** As meta tags `og:image` em [index.html](index.html) apontam para `https://kombatclub.com.br/og.png`, mas o arquivo ainda não foi criado. Enquanto isso não for resolvido, links do site compartilhados no WhatsApp aparecem sem thumbnail. Bloqueante para divulgação.
-- **Token do Cloudflare Web Analytics é placeholder.** O script no fim do [index.html](index.html) usa `__CF_BEACON_TOKEN__` literal. Pegue o token real no painel Cloudflare em Analytics & Logs → Web Analytics → Add a site, e substitua.
-- **Nameservers do domínio kombatclub.com.br ainda não apontam para o Cloudflare.** Sem isso o Cloudflare Pages não serve o domínio custom.
+- **Conectar o domínio ao Worker.** A troca de nameservers já foi feita no Registro.br (`brad.ns.cloudflare.com` / `emma.ns.cloudflare.com`) e o domínio está em transição — o Registro.br leva ao menos 2h removendo a chave DNSSEC antes de delegar. Depois que a zona estiver ativa no Cloudflare, falta conectar o domínio em Workers & Pages → kombatclub-site → Domains → Add Domain.
