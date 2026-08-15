@@ -66,11 +66,25 @@ nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(
   .nav-links{gap:16px;font-size:13px}
   .brand .txt{font-size:24px}
 }
+/* menu mobile */
+.menu-btn{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px;margin-left:auto}
+.menu-btn span{display:block;width:24px;height:2px;background:var(--white);transition:.25s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.menu-mobile{position:fixed;inset:0;z-index:60;background:rgba(13,13,13,.97);backdrop-filter:blur(8px);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:32px 28px;opacity:0;visibility:hidden;transition:.24s}
+.menu-mobile.aberto{opacity:1;visibility:visible}
+.menu-mobile a{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.03em;color:#E8E8E8;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.menu-mobile a:active{color:var(--red)}
+.menu-mobile .menu-cta{margin-top:22px;border-bottom:0;background:var(--red);color:#fff;text-align:center;padding:16px;font-size:22px;letter-spacing:.08em;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+
 @media(max-width:900px){
-  .nav-in{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:8px;row-gap:6px}
-  .nav-links{order:3;width:100%;overflow-x:auto;gap:18px;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .nav-links::-webkit-scrollbar{display:none}
-  .nav-links a{flex:none}
+  .nav-links{display:none}
+  .menu-btn{display:flex}
+}
+@media(min-width:901px){
+  .menu-mobile{display:none}
 }
 
 /* buttons */
@@ -121,7 +135,12 @@ h1 .strike::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;heig
 .hr{height:1px;background:rgba(255,255,255,.07);margin:6px 0}
 .radar-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#767D8F;padding:11px 2px;font-weight:600}
 .insights{margin-top:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:12px 14px 4px}
-.phone-cap{text-align:center;font-size:12.5px;color:#6F7686;padding:12px 6px 6px;font-weight:600;letter-spacing:.02em}
+.phone-cap{text-align:center;font-size:12.5px;color:#6F7686;padding:0 6px 12px;font-weight:600;letter-spacing:.02em}
+@media(max-width:900px){
+  .phone{max-width:340px}
+  .phone .panel{max-height:340px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 72%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 72%,transparent 100%)}
+  .phone .insights{display:none}
+}
 
 /* sinais */
 .sinais{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:52px}
@@ -316,6 +335,9 @@ footer a:hover{color:var(--white)}
       <a href="#tecnica">Evolução</a>
       <a href="#planos">Planos</a>
     </div>
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+      <span></span><span></span><span></span>
+    </button>
     <div class="nav-right">
       <a class="ig-btn" href="https://instagram.com/kombatclub_app" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8zm7.85-10.4a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
@@ -325,6 +347,16 @@ footer a:hover{color:var(--white)}
     </div>
   </div>
 </nav>
+
+<div class="menu-mobile" id="menu-mobile" role="dialog" aria-modal="true" aria-hidden="true">
+  <a href="#problema">O problema</a>
+  <a href="#quem">Quem faz</a>
+  <a href="#funciona">Como funciona</a>
+  <a href="#recursos">Recursos</a>
+  <a href="#tecnica">Evolução</a>
+  <a href="#planos">Planos</a>
+  <a class="menu-cta" href="https://app.kombatclub.com.br?utm_source=landing&amp;utm_medium=site&amp;utm_campaign=landing_v1&amp;utm_content=menu_mobile">Testar 14 dias grátis</a>
+</div>
 
 <header class="hero">
   <div class="wrap hero-grid">
@@ -345,6 +377,7 @@ footer a:hover{color:var(--white)}
 
     <div>
       <div class="phone" aria-label="Tela do KombatClub: hoje você precisa olhar">
+        <div class="phone-cap">Tela inicial do professor — é isso que você vê ao abrir o app.</div>
         <div class="phone-h"><h4>HOJE VOCÊ PRECISA OLHAR</h4><span class="pill">6</span></div>
 
         <div class="panel">
@@ -390,8 +423,6 @@ footer a:hover{color:var(--white)}
             <div class="bdg b-gold">Sem clinch</div>
           </div>
         </div>
-
-        <div class="phone-cap">Tela inicial do professor — é isso que você vê ao abrir o app.</div>
       </div>
     </div>
   </div>
@@ -775,6 +806,25 @@ function setCiclo(anual){
 }
 bM.addEventListener('click',()=>setCiclo(false));
 bA.addEventListener('click',()=>setCiclo(true));
+
+const menuBtn = document.getElementById('menu-btn');
+const menuMob = document.getElementById('menu-mobile');
+function fecharMenu(){
+  menuBtn.setAttribute('aria-expanded','false');
+  menuMob.classList.remove('aberto');
+  menuMob.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+menuBtn.addEventListener('click', () => {
+  const aberto = menuBtn.getAttribute('aria-expanded') === 'true';
+  if (aberto) { fecharMenu(); return; }
+  menuBtn.setAttribute('aria-expanded','true');
+  menuMob.classList.add('aberto');
+  menuMob.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+});
+menuMob.querySelectorAll('a').forEach(a => a.addEventListener('click', fecharMenu));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharMenu(); });
 </script>
 
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a5c4215a715d45d5ad57a09bcbb8039e"}'></script><!-- End Cloudflare Web Analytics -->

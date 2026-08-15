@@ -47,15 +47,17 @@ Diferencial central da página: acompanhamento de evolução técnica do aluno (
 
 ## Mobile
 
-Breakpoint principal de mobile: `max-width:520px` (nav, toggle de planos, padding lateral de cards). Há também um degrau intermediário em `max-width:1080px` (nav mais compacta) e outro em `max-width:900px` (nav em faixa rolável, ver abaixo). O mosaico da seção `#quem` usa `max-width:560px` à parte, porque a coluna precisa de um pouco mais de largura antes de compactar.
+Breakpoint principal de mobile: `max-width:520px` (nav, toggle de planos, padding lateral de cards). Há também um degrau intermediário em `max-width:1080px` (nav desktop mais compacta) e outro em `max-width:900px`, onde a nav vira menu hambúrguer (ver abaixo). O mosaico da seção `#quem` usa `max-width:560px` à parte, porque a coluna precisa de um pouco mais de largura antes de compactar.
 
 Espaçamento vertical de seção (`section`, `.hero`, `.final`) usa `clamp()` em vez de valor fixo em px — desktop-first com padding fixo deixa vazio demais entre seções em tela estreita. Ao adicionar padding vertical novo em bloco de largura total, prefira `clamp(mín,vw,máx)` a um valor único.
 
-Ordem de cascata das media queries de nav/mosaico no CSS: `1080px` → `900px` → `560px` → `520px`, do mais largo para o mais estreito. Isso é proposital — regra de breakpoint mais estreito precisa vir depois no arquivo para vencer no empate de especificidade quando várias condições batem ao mesmo tempo (abaixo de 520px, por exemplo, os três primeiros blocos também se aplicam). Media query nova em nav/mosaico entra na posição certa dessa sequência, não em qualquer lugar.
-
 ### Nav no celular
 
-Abaixo de 900px a nav não vira menu hambúrguer nem some — os links (`.nav-links`) descem para uma segunda linha (`order:3` dentro de `.nav-in`, que ganha `flex-wrap:wrap`) e rolam horizontalmente, com a barra de scroll escondida via `scrollbar-width:none` / `::-webkit-scrollbar{display:none}`. Link de nav novo entra nessa faixa sem precisar de mudança estrutural no HTML — é só mais um `<a>` dentro de `.nav-links`.
+Abaixo de 900px a nav vira **menu hambúrguer** (`.menu-btn`, três `<span>`, ícone vira "X" via `aria-expanded` — sem classe extra) que abre um overlay de tela cheia (`.menu-mobile`, `id="menu-mobile"`). Antes disso o site usou uma faixa de links rolável horizontalmente em vez de hambúrguer; foi descartada porque com 5+ links a faixa cortava nas pontas e às vezes já abria rolada, escondendo os primeiros itens — cortado é pior que ausente, e hambúrguer é padrão que o visitante já sabe usar.
+
+**Link de nav novo entra em dois lugares, não um só**: dentro de `.nav-links` (desktop) *e* dentro de `#menu-mobile` (overlay mobile). Esquecer o segundo deixa o menu do celular desatualizado silenciosamente — nada quebra, só falta o link.
+
+O JS do menu (toggle, fechar ao clicar em link, fechar com Esc, travar scroll do body) fica no `<script>` existente no fim do arquivo, junto com o script do toggle de planos.
 
 ### Mosaico da seção "Quem faz"
 
@@ -64,6 +66,8 @@ O mosaico mantém o arranjo 1+2 (uma foto larga em cima, duas embaixo) em **toda
 ## Painel do hero (`.phone`)
 
 O `.phone` no hero reproduz uma tela real do app e simula moldura de celular via pseudo-elementos: `::before` é o alto-falante (barra escura no topo), `::after` é a barra de gesto (linha clara na base). Não são elementos HTML — ajuste de moldura (posição, espessura, cor) se faz nesses dois seletores no CSS, sem tocar a estrutura do painel.
+
+No mobile (`max-width:900px`) o painel é truncado por `mask-image`/`-webkit-mask-image` em degradê sobre `.panel` (corta em ~72% da altura com fade, não corte seco) e o bloco `.insights` fica oculto (`display:none`) — no desktop ele aparece inteiro. O motivo é de contexto, não só de espaço: o painel some para baixo dos CTAs do hero no celular, então `.phone-cap` (a legenda "Tela inicial do professor...") mora **no topo** do `.phone`, antes de `.phone-h`, para dar contexto antes da rolagem em vez de só depois dela.
 
 ## Seção "Quem faz" (`#quem`)
 
@@ -108,6 +112,7 @@ Todo link que aponta para `https://app.kombatclub.com.br` deve levar query strin
 | Posição no HTML | utm_content |
 |---|---|
 | Botão "Entrar" na nav | `nav` |
+| CTA "Testar 14 dias grátis" no overlay do menu mobile | `menu_mobile` |
 | CTA "Testar 14 dias grátis" no hero | `hero` |
 | Botão "Pegar meu link" na faixa de vínculo | `vinculo` |
 | Card do plano Solo | `plano_solo` |
