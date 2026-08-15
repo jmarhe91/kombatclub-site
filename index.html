@@ -59,10 +59,19 @@ nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(
 .brand .txt{font-family:'Bebas Neue',sans-serif;font-size:27px;letter-spacing:.03em;line-height:.9}
 .brand .txt em{color:var(--red);font-style:normal}
 .brand .tag{display:block;font-family:'Raleway',sans-serif;font-size:8.5px;letter-spacing:.34em;color:#7C7C7C;font-weight:700;margin-top:3px}
-.nav-links{display:flex;gap:28px;font-size:14px;font-weight:600;color:#BFBFBF}
+.nav-links{display:flex;gap:24px;font-size:14px;font-weight:600;color:#BFBFBF;white-space:nowrap}
 .nav-links a:hover{color:var(--white)}
 .nav-right{display:flex;align-items:center;gap:12px}
-@media(max-width:900px){.nav-links{display:none}}
+@media(max-width:1080px){
+  .nav-links{gap:16px;font-size:13px}
+  .brand .txt{font-size:24px}
+}
+@media(max-width:900px){
+  .nav-in{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:8px;row-gap:6px}
+  .nav-links{order:3;width:100%;overflow-x:auto;gap:18px;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{flex:none}
+}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.08em;padding:14px 26px;border:0;cursor:pointer;transition:.18s;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
@@ -89,7 +98,9 @@ h1 .strike::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;heig
 .trust b{color:var(--white);font-weight:800}
 
 /* painel real do app */
-.phone{max-width:400px;margin:0 auto;background:var(--navy);border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:16px 14px 8px;box-shadow:0 40px 80px -34px rgba(0,0,0,.95)}
+.phone{max-width:392px;margin:0 auto;background:var(--navy);border:11px solid #1C1C1E;border-radius:40px;padding:30px 12px 14px;position:relative;box-shadow:0 40px 80px -34px rgba(0,0,0,.95),inset 0 0 0 1px rgba(255,255,255,.06)}
+.phone::before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:92px;height:7px;border-radius:99px;background:#2A2A2C}
+.phone::after{content:"";position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:104px;height:4px;border-radius:99px;background:rgba(255,255,255,.22)}
 .phone-h{display:flex;align-items:center;gap:10px;padding:0 4px 14px}
 .phone-h h4{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.05em;color:#E8E8E8;font-weight:400}
 .pill{font-size:11px;font-weight:800;background:rgba(229,57,53,.18);color:#FF6B66;border:1px solid rgba(229,57,53,.4);border-radius:999px;padding:2px 8px}
@@ -268,9 +279,9 @@ footer a:hover{color:var(--white)}
 
 /* mobile */
 @media(max-width:560px){
-  .mosaico{grid-template-columns:1fr;grid-template-rows:none;gap:8px}
-  .mosaico figure{height:clamp(170px,44vw,230px)}
-  .mosaico figure:first-child{grid-column:auto}
+  .mosaico{grid-template-columns:1fr 1fr;grid-template-rows:clamp(135px,34vw,175px) clamp(105px,26vw,135px);gap:8px}
+  .mosaico figure:first-child{grid-column:1 / -1}
+  .mosaico figure{height:auto}
 }
 @media(max-width:520px){
   .toggle{width:100%;display:flex}

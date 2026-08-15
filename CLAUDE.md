@@ -47,9 +47,23 @@ Diferencial central da página: acompanhamento de evolução técnica do aluno (
 
 ## Mobile
 
-Breakpoint principal de mobile: `max-width:520px` (nav, toggle de planos, padding lateral de cards). O mosaico da seção `#quem` usa `max-width:560px` à parte, porque a coluna única de fotos empilhadas precisa de um pouco mais de largura antes de virar layout mobile.
+Breakpoint principal de mobile: `max-width:520px` (nav, toggle de planos, padding lateral de cards). Há também um degrau intermediário em `max-width:1080px` (nav mais compacta) e outro em `max-width:900px` (nav em faixa rolável, ver abaixo). O mosaico da seção `#quem` usa `max-width:560px` à parte, porque a coluna precisa de um pouco mais de largura antes de compactar.
 
 Espaçamento vertical de seção (`section`, `.hero`, `.final`) usa `clamp()` em vez de valor fixo em px — desktop-first com padding fixo deixa vazio demais entre seções em tela estreita. Ao adicionar padding vertical novo em bloco de largura total, prefira `clamp(mín,vw,máx)` a um valor único.
+
+Ordem de cascata das media queries de nav/mosaico no CSS: `1080px` → `900px` → `560px` → `520px`, do mais largo para o mais estreito. Isso é proposital — regra de breakpoint mais estreito precisa vir depois no arquivo para vencer no empate de especificidade quando várias condições batem ao mesmo tempo (abaixo de 520px, por exemplo, os três primeiros blocos também se aplicam). Media query nova em nav/mosaico entra na posição certa dessa sequência, não em qualquer lugar.
+
+### Nav no celular
+
+Abaixo de 900px a nav não vira menu hambúrguer nem some — os links (`.nav-links`) descem para uma segunda linha (`order:3` dentro de `.nav-in`, que ganha `flex-wrap:wrap`) e rolam horizontalmente, com a barra de scroll escondida via `scrollbar-width:none` / `::-webkit-scrollbar{display:none}`. Link de nav novo entra nessa faixa sem precisar de mudança estrutural no HTML — é só mais um `<a>` dentro de `.nav-links`.
+
+### Mosaico da seção "Quem faz"
+
+O mosaico mantém o arranjo 1+2 (uma foto larga em cima, duas embaixo) em **todas** as larguras, inclusive abaixo de 560px — não vira coluna única no mobile. O que muda por breakpoint é só a altura das linhas do grid (`grid-template-rows`), pra caber sem obrigar várias telas de scroll.
+
+## Painel do hero (`.phone`)
+
+O `.phone` no hero reproduz uma tela real do app e simula moldura de celular via pseudo-elementos: `::before` é o alto-falante (barra escura no topo), `::after` é a barra de gesto (linha clara na base). Não são elementos HTML — ajuste de moldura (posição, espessura, cor) se faz nesses dois seletores no CSS, sem tocar a estrutura do painel.
 
 ## Seção "Quem faz" (`#quem`)
 
