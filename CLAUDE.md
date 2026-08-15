@@ -63,11 +63,13 @@ O JS do menu (toggle, fechar ao clicar em link, fechar com Esc, travar scroll do
 
 O mosaico mantém o arranjo 1+2 (uma foto larga em cima, duas embaixo) em **todas** as larguras, inclusive abaixo de 560px — não vira coluna única no mobile. O que muda por breakpoint é só a altura das linhas do grid (`grid-template-rows`), pra caber sem obrigar várias telas de scroll.
 
-## Painel do hero (`.phone`)
+## Painel do app (`.phone`) — duplicado no HTML, hero no desktop e `#tecnica` no mobile
 
-O `.phone` no hero reproduz uma tela real do app e simula moldura de celular via pseudo-elementos: `::before` é o alto-falante (barra escura no topo), `::after` é a barra de gesto (linha clara na base). Não são elementos HTML — ajuste de moldura (posição, espessura, cor) se faz nesses dois seletores no CSS, sem tocar a estrutura do painel.
+O `.phone` reproduz uma tela real do app e simula moldura de celular via pseudo-elementos: `::before` é o alto-falante (barra escura no topo), `::after` é a barra de gesto (linha clara na base). Não são elementos HTML — ajuste de moldura (posição, espessura, cor) se faz nesses dois seletores no CSS, sem tocar a estrutura do painel.
 
-No mobile (`max-width:900px`) o painel é truncado por `mask-image`/`-webkit-mask-image` em degradê sobre `.panel` (corta em ~72% da altura com fade, não corte seco) e o bloco `.insights` fica oculto (`display:none`) — no desktop ele aparece inteiro. O motivo é de contexto, não só de espaço: o painel some para baixo dos CTAs do hero no celular, então `.phone-cap` (a legenda "Tela inicial do professor...") mora **no topo** do `.phone`, antes de `.phone-h`, para dar contexto antes da rolagem em vez de só depois dela.
+**O bloco `.phone` existe duplicado no HTML**: uma cópia dentro do `.hero`, outra dentro de `.phone-tecnica` na seção `#tecnica`. Só uma aparece por vez — CSS alterna por breakpoint (`.hero .phone{display:none}` / `.phone-tecnica{display:block}` abaixo de `900px`, e o inverso acima). Isso existe porque no mobile o painel solto no hero (depois dos dois CTAs, sem nenhuma ligação com o que veio antes) não funcionava mesmo cortado em altura — o problema era falta de contexto, não tamanho. Mover por JS conforme a largura foi descartado de propósito (reflow, ponto de falha a mais para um problema puramente visual); duplicar HTML e resolver em CSS foi a troca aceita.
+
+**Qualquer alteração no conteúdo do painel (texto, alunos de exemplo, badges) precisa ser feita nas duas cópias**, ou desktop e mobile divergem silenciosamente — nada quebra, só ficam diferentes. Isso inclui o bloco `.insights` (badge "Sem clinch"), que hoje aparece inteiro nas duas cópias — ele é o argumento central que a seção `#tecnica` desenvolve, por isso não é mais truncado ou escondido no mobile como em uma versão anterior. `.phone-cap` (a legenda) fica no **rodapé** do painel nas duas cópias — no hero porque o painel ali é só reforço visual ao lado do texto, na seção `#tecnica` porque o H2 e o parágrafo já dão contexto antes do painel aparecer.
 
 ## Seção "Quem faz" (`#quem`)
 

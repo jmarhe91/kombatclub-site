@@ -108,6 +108,10 @@ h1 .strike::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;heig
 @keyframes cut{to{transform:scaleX(1)}}
 .hero p.lead{font-size:19px;max-width:520px;margin:22px 0 30px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+@media(max-width:560px){
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{width:100%}
+}
 .trust{margin-top:26px;font-size:13.5px;color:var(--ash);display:flex;gap:22px;flex-wrap:wrap}
 .trust b{color:var(--white);font-weight:800}
 
@@ -135,11 +139,15 @@ h1 .strike::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;heig
 .hr{height:1px;background:rgba(255,255,255,.07);margin:6px 0}
 .radar-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#767D8F;padding:11px 2px;font-weight:600}
 .insights{margin-top:12px;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:12px 14px 4px}
-.phone-cap{text-align:center;font-size:12.5px;color:#6F7686;padding:0 6px 12px;font-weight:600;letter-spacing:.02em}
+.phone-cap{text-align:center;font-size:12.5px;color:#6F7686;padding:12px 6px 4px;font-weight:600;letter-spacing:.02em}
 @media(max-width:900px){
-  .phone{max-width:340px}
-  .phone .panel{max-height:340px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 72%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 72%,transparent 100%)}
-  .phone .insights{display:none}
+  .phone-tecnica .phone{max-width:360px}
+}
+/* painel: hero no desktop, secao tecnica no mobile */
+.phone-tecnica{display:none;margin-top:38px}
+@media(max-width:900px){
+  .hero .phone{display:none}
+  .phone-tecnica{display:block}
 }
 
 /* sinais */
@@ -377,7 +385,6 @@ footer a:hover{color:var(--white)}
 
     <div>
       <div class="phone" aria-label="Tela do KombatClub: hoje você precisa olhar">
-        <div class="phone-cap">Tela inicial do professor — é isso que você vê ao abrir o app.</div>
         <div class="phone-h"><h4>HOJE VOCÊ PRECISA OLHAR</h4><span class="pill">6</span></div>
 
         <div class="panel">
@@ -423,6 +430,8 @@ footer a:hover{color:var(--white)}
             <div class="bdg b-gold">Sem clinch</div>
           </div>
         </div>
+
+        <div class="phone-cap">Tela inicial do professor — é isso que você vê ao abrir o app.</div>
       </div>
     </div>
   </div>
@@ -595,6 +604,58 @@ footer a:hover{color:var(--white)}
           <li>O aluno acompanha a própria evolução — por isso ele registra</li>
           <li>Funciona igual com 15 ou com 200 alunos</li>
         </ul>
+      </div>
+    </div>
+
+    <div class="phone-tecnica">
+      <div class="phone" aria-label="Tela do KombatClub: hoje você precisa olhar">
+        <div class="phone-h"><h4>HOJE VOCÊ PRECISA OLHAR</h4><span class="pill">6</span></div>
+
+        <div class="panel">
+          <div class="grp">Sumindo <b>2</b> <small>· pior: 9 dias</small></div>
+          <div class="al">
+            <div class="av">EC</div>
+            <div class="al-mid"><strong>Eduardo Costa</strong><span>Sem treino há 9 dias</span></div>
+            <div class="bdg b-red">Inativo</div>
+          </div>
+          <div class="al">
+            <div class="av">DM</div>
+            <div class="al-mid"><strong>Diego Mendes</strong><span>Sem treino há 6 dias</span></div>
+            <div class="bdg b-red">Inativo</div>
+          </div>
+
+          <div class="hr"></div>
+          <div class="grp">Sinais de treino <b>4</b></div>
+          <div class="al">
+            <div class="av">BF</div>
+            <div class="al-mid"><strong>Bruno Ferreira</strong><span>Sinal de risco por sparring pesado</span></div>
+            <div class="bdg b-purple">Sparring pesado</div>
+          </div>
+          <div class="al">
+            <div class="av">CO</div>
+            <div class="al-mid"><strong>Carla Oliveira</strong><span>Carga abaixo da média da turma</span></div>
+            <div class="bdg b-blue">Carga baixa</div>
+          </div>
+          <div class="al">
+            <div class="av">FL</div>
+            <div class="al-mid"><strong>Fernanda Lima</strong><span>Carga abaixo da média da turma</span></div>
+            <div class="bdg b-blue">Carga baixa</div>
+          </div>
+
+          <div class="hr"></div>
+          <div class="radar-row"><span>Fora do radar <b style="background:rgba(255,255,255,.09);border-radius:999px;padding:1px 7px;font-size:11px">1</b></span><span>⌄</span></div>
+        </div>
+
+        <div class="insights">
+          <div class="grp">Insights <b>1</b></div>
+          <div class="al">
+            <div class="av">AC</div>
+            <div class="al-mid"><strong>Ana Carvalho</strong><span>Verificar histórico de treinos</span></div>
+            <div class="bdg b-gold">Sem clinch</div>
+          </div>
+        </div>
+
+        <div class="phone-cap">Tela inicial do professor — é isso que você vê ao abrir o app.</div>
       </div>
     </div>
   </div>
